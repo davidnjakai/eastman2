@@ -33,6 +33,8 @@ class Patients(models.Model):
 
     def __str__(self):
         return self.lastname
+    def mobileFormatOk(self):
+        return 9 < len(str(self.mobilenumber)) < 13
     class Meta:
         managed = False
         db_table = 'patients'
