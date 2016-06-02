@@ -5,8 +5,7 @@ from django.views import generic
 from .models import Patients
 class IndexView(generic.ListView):
     template_name = 'clinic/index.html'
-    context_object_name = 'patient_list'
-
+    
     def get_queryset(self):
         """Return the first five  patients."""
         return Patients.objects.order_by('patid')[:5]
