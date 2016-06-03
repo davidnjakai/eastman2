@@ -35,6 +35,7 @@ class Patients(models.Model):
         return self.lastname
     def mobileFormatOk(self):
         return 9 < len(str(self.mobilenumber)) < 13
+    mobileFormatOk.short_description = 'mobile number format is OK?'
     class Meta:
         managed = False
         db_table = 'patients'
