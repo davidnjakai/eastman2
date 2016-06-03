@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.views import generic
 from .models import Patients
 class IndexView(generic.ListView):
+    model = Patients
     template_name = 'clinic/index.html'
     contex_object_name='patients_list'
     def get_queryset(self):
@@ -13,3 +14,9 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Patients
     template_name = 'clinic/detail.html'
+    def get_queryset(self):
+    	"""
+    	excludes patients that have insuranceamount
+    	below 20000
+    	"""
+    	return Patients.objects.filter(insuranceamount__gte=20000)
