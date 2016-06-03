@@ -1,3 +1,7 @@
+
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'clinic/style.css' %}" />
 {% if patients_list %}
     <ul>
     {% for patient in patients_list %}
