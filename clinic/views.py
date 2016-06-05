@@ -20,3 +20,13 @@ class DetailView(generic.DetailView):
     	below 20000
     	"""
     	return Patients.objects.filter(insuranceamount__gte=20000)
+
+def update(request, pk):
+    patients = get_object_or_404(Patients, pk=pk)
+    newname = request.POST['lastname']
+    patients.lastname=newname
+    patients.save()
+    # Always return an HttpResponseRedirect after successfully dealing
+    # with POST data. This prevents data from being posted twice if a
+    # user hits the Back button.
+    return HttpResponseRedirect(reverse('clinic:detail', args=(patients.patid,)))

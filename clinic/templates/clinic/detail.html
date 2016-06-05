@@ -1,2 +1,8 @@
-<p> {{ patients.firstname }} </p>
+<h1> {{ patients.firstname }} </h1>
 <p>{{patients.mobileFormatOk}} </p>
+
+<form action = "{% url 'clinic:update' patients.patid %}" method="post">
+	{% csrf_token %}
+    <input type="text" name="lastname" value="{{ patients.lastname }}" />
+    <input type="submit" value="Update and save" />
+</form>
