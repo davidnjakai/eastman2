@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'clinic.apps.ClinicConfig',
-    'django.contrib.sites',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -81,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'pankpinther',
-        'PASSWORD':'asdf',
+        'PASSWORD':'PPw4life',
         'HOST': 'localhost',
         'PORT': '5432',
     }
