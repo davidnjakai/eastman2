@@ -4,5 +4,5 @@ app_name = 'clinic'
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
-    url(r'^(?P<pk>[0-9]+)/update/$', views.update, name='update'),
+    url(r'^(?P<pk>[0-9]+)/patdetails/$', views.patdetails, name='patdetails'),
 ]

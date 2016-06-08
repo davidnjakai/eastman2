@@ -3,6 +3,8 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.views import generic
 from .models import Patients
+from .forms import PatientsForm
+
 class IndexView(generic.ListView):
     model = Patients
     template_name = 'clinic/index.html'
@@ -21,12 +23,14 @@ class DetailView(generic.DetailView):
     	"""
     	return Patients.objects.filter(insuranceamount__gte=20000)
 
-def update(request, pk):
-    patients = get_object_or_404(Patients, pk=pk)
-    newname = request.POST['lastname']
-    patients.lastname=newname
-    patients.save()
-    # Always return an HttpResponseRedirect after successfully dealing
-    # with POST data. This prevents data from being posted twice if a
-    # user hits the Back button.
-    return HttpResponseRedirect(reverse('clinic:detail', args=(patients.patid,)))
+def patdetails(request, pk):
+    patients = Patients.objects.get(pk = pk)
+    if request.method == "POST":
+        form = PatientsForm(request.POST, instance=patients)
+        if form.is_valid():
+            ourpatient = form.save(commit = False)
+            ourpatient.save()
+            return HttpResponseRedirect(reverse('clinic:detail', args=(ourpatient.patid,)))
+    else:
+        form = PatientsForm(instance = patients)
+    return render(request, 'clinic/edit.html', {'form': form, 'patients': patients})
