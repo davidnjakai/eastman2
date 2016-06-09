@@ -1,6 +1,6 @@
 
 {% load staticfiles %}
-
+<a href = "{% url 'clinic:add' %}"> ADD PATIENT </a>
 <link rel="stylesheet" type="text/css" href="{% static 'clinic/style.css' %}" />
 {% if patients_list %}
     <ul>
