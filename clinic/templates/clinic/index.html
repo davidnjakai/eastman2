@@ -1,7 +1,5 @@
-
-{% load staticfiles %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
 <a href = "{% url 'clinic:add' %}"> ADD PATIENT </a>
-<link rel="stylesheet" type="text/css" href="{% static 'clinic/style.css' %}" />
 {% if patients_list %}
     <ul>
     {% for patient in patients_list %}

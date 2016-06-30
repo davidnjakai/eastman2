@@ -1,4 +1,5 @@
-{% if patients %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+<div class = "container-fluid">{% if patients %}
 {{ patients.firstname }} {{ patients.lastname }} 
 <form action = "{% url 'clinic:patdetails' patients.patid %}" method = "POST" >
 {% else %}
@@ -10,3 +11,4 @@ ENTER NEW PATIENT DETAILS
 	<input type = "submit" value = "save changes" />
 </form>
 <a href = "{% url 'clinic:index' %}"> BACK TO PATIENTS </a>
+</div>
