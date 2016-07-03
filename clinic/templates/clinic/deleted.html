@@ -1,3 +1,5 @@
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+{% extends "clinic/base.html" %}
+{% block content %}
 {{ notification }}
 <a href = "{% url 'clinic:index' %}"> BACK TO PATIENTS </a>
+{% endblock %}

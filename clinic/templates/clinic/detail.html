@@ -1,10 +1,21 @@
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+{% extends "clinic/base.html" %}
+{% block content %}
 <center><h1>{{ patients.firstname }} {{ patients.lastname }}</h1></center> <br> <br>
 <div class = "row">
-	<div class = "col-xs-4"><a href = "{% url 'clinic:patdetails' patients.patid %}"> <button class = "btn btn-block btn-primary">Edit</button></a>
+	<div class = "col-xs-4">
+		<a href = "{% url 'clinic:patdetails' patients.patid %}">
+			<button class = "btn btn-block btn-primary">Edit</button>
+		</a>
 	</div>
-	<div class = "col-xs-4"><a href = "{% url 'clinic:delete' patients.patid %}"> <button class = "btn btn-block btn-danger">Delete</button></a>
+	<div class = "col-xs-4">
+		<a href = "{% url 'clinic:delete' patients.patid %}">
+			<button class = "btn btn-block btn-danger">Delete</button>
+		</a>
 	</div>
-	<div class = "col-xs-4"><a href = "{% url 'clinic:index' %}"> <button class = "btn btn-block btn-info"> Back to Patients</button></a>
+	<div class = "col-xs-4">
+		<a href = "{% url 'clinic:index' %}">
+			<button class = "btn btn-block btn-info"> Back to Patients</button>
+		</a>
 	</div>
 </div>
+{% endblock %}

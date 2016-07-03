@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+{% extends "clinic/base.html" %}
+{% block content %}
 <a href = "{% url 'clinic:add' %}"> ADD PATIENT </a>
 {% if patients_list %}
     <ul>
@@ -9,3 +10,4 @@
 {% else %}
     <p>No patients are available.</p>
 {% endif %}
+{% endblock %}
