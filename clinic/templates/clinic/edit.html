@@ -1,17 +1,21 @@
 {% extends "clinic/base.html" %}
+
+{% block title %}
+	<title>Patient Details</title>
+{%endblock%}
+
 {% block content %}
-<div class = "container-fluid">
-{% if patients %}
-	{{ patients.firstname }} {{ patients.lastname }} 
-	<form action = "{% url 'clinic:patdetails' patients.patid %}" method = "POST" >
-{% else %}
-	ENTER NEW PATIENT DETAILS
-	<form action = "{% url 'clinic:add' %}" method = "POST" >
-{% endif %}
-{% csrf_token %}
-{{ form.as_p }}
-<input type = "submit" value = "save changes" />
-</form>
-<a href = "{% url 'clinic:index' %}"> BACK TO PATIENTS </a>
-</div>
+	{% if patients %}
+		{{ patients.firstname }} {{ patients.lastname }} 
+		<form action = "{% url 'clinic:patdetails' patients.patid %}" method = "POST" >
+	{% else %}
+		ENTER NEW PATIENT DETAILS
+		<form action = "{% url 'clinic:add' %}" method = "POST" >
+	{% endif %}
+
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type = "submit" value = "save changes" />
+	</form>
+	<a href = "{% url 'clinic:index' %}"> BACK TO PATIENTS </a>
 {% endblock %}

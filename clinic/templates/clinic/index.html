@@ -1,13 +1,18 @@
 {% extends "clinic/base.html" %}
+
+{% block title %}
+	<title>Eastman's clinic</title>
+{% endblock %}
+
 {% block content %}
-<a href = "{% url 'clinic:add' %}"> ADD PATIENT </a>
-{% if patients_list %}
-    <ul>
-    {% for patient in patients_list %}
-        <li><a href="{% url 'clinic:detail' patient.patid %}">{{ patient.lastname }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No patients are available.</p>
-{% endif %}
+	<a href = "{% url 'clinic:add' %}"> ADD PATIENT </a>
+	{% if patients_list %}
+		<ul>
+		{% for patient in patients_list %}
+			<li><a href="{% url 'clinic:detail' patient.patid %}">{{ patient.lastname }}</a></li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>No patients are available.</p>
+	{% endif %}
 {% endblock %}

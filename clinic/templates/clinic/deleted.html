@@ -1,5 +1,10 @@
 {% extends "clinic/base.html" %}
+
+{% block title %}
+	<title>Deleted</title>
+{% endblock %}
+
 {% block content %}
-{{ notification }}
-<a href = "{% url 'clinic:index' %}"> BACK TO PATIENTS </a>
+	{{ notification }}
+	<a href = "{% url 'clinic:index' %}"> BACK TO PATIENTS </a>
 {% endblock %}
